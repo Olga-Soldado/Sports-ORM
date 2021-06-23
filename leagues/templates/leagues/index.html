@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sports Leagues</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+	</head>
+<body>
+	<div class="container-sm" style="border: 5px #1D4D4F solid;background-color: #357376;">
+		<h1 class="text-center">Consultas a realizar en base de datos</h1>
+		<div class="card"style="background-color: #79A8A9;">
+			<h2 >Todas las ligas de béisbol</h2>
+			<div class="card-body">
+				<ol>
+					{% for league in beisbol %}
+						<li><strong>Liga: </strong>{{league.name}}</li>
+					{% empty %}
+					<p>No se encontraron resultados.</p> 
+					{% endfor %}
+				</ol>
+			</div>
+		</div><br>
+		<div class="card"style="background-color: #79A8A9;">
+			<h2>Todas las ligas de mujeres.</h2>
+			<div class="card-body">
+				<h5>No existen resultados para ligas de mujeres, se cambio por " Lacrosse".</h5>
+				<ol>
+					{% for league in mujeres %}
+						<li><strong>Liga: </strong>{{league.name}}</li>
+					{% empty %}
+					<p>No se encontraron resultados.</p> 
+					{% endfor %}
+				</ol>
+			</div>
+		</div><br>
+		<div class="card"style="background-color: #79A8A9;">
+			<h2>Todas las ligas donde el deporte es cualquier tipo de hockey</h2>
+			<div class="card-body">
+				<ol>
+					{% for league in hockey %}
+						<li><strong>Liga: </strong>{{league.name}}</li>
+					{% empty %}
+					<p>No se encontraron resultados.</p> 
+					{% endfor %}
+				</ol>
+			</div>
+		</div><br>
+		<div class="card"style="background-color: #79A8A9;">
+			<h2>Todas las ligas donde el deporte no sea football</h2>
+			<div class="card-body">
+				<ol>
+					{% for league in no_football %}
+						<li><strong>Liga: </strong>{{league.name}}</li>
+					{% empty %}
+					<p>No se encontraron resultados.</p> 
+					{% endfor %}
+				</ol>
+			</div>
+		</div><br>
+		<div class="card"style="background-color: #79A8A9;">
+			<h2>Todas las ligas que se llaman "conferencias".</h2>
+			<div class="card-body">
+				<ol>
+					{% for league in conferencias %}
+						<li><strong>Liga: </strong>{{league.name}}</li>
+					{% empty %}
+					<p>No se encontraron resultados.</p> 
+					{% endfor %}
+				</ol>
+			</div>
+		</div><br>
+		<div class="card"style="background-color: #79A8A9;">
+			<h2>Todas las ligas de la región atlántica.</h2>
+			<div class="card-body">
+				<ol>
+					{% for league in atlantic %}
+						<li><strong>Liga: </strong>{{league.name}}</li>
+					{% empty %}
+						<p>No se encontraron resultados.</p>  
+					{% endfor %}
+				</ol>
+			</div>
+		</div><br>
+		<div class="card"style="background-color: #79A8A9;">
+			<h2>Todos los equipos con sede en Dallas.</h2>
+			<div class="card-body">
+				<ol>
+					{% for team in Dallas %}
+						<li>{{team.location}} >> <strong>{{team.team_name}}</strong></li>
+					{% empty %}
+					<p>No se encontraron resultados.</p> 
+					{% endfor %}
+				</ol>
+			</div>
+		</div><br>
+		<div class="card"style="background-color: #79A8A9;">
+			<h2>Todos los equipos nombraron los Raptors.</h2>
+			<div class="card-body">
+				<h5>No existen valores para Raptors,se modifico por Wolverines .</h5>
+				<ol>
+					{% for team in Raptors %}
+						<li><strong>Equipo:</strong> {{team.team_name}} >> <strong>Ubicacion : {{team.location}}</strong> </li>
+					{% empty %}
+					<p>No se encontraron resultados.</p> 
+					{% endfor %}
+				</ol>
+			</div>
+		</div><br>
+		<div class="card"style="background-color: #79A8A9;">
+			<h2>Todos los equipos cuya ubicación incluye "Ciudad".</h2>
+			<div class="card-body">
+				<ol>
+					{% for team in Ciudad %}
+						<li><strong> {{team.team_name}}</strong>  >> {{team.location}}</li>
+					{% empty %}
+					<p>No se encontraron resultados.</p> 
+					{% endfor %}
+				</ol>
+			</div>
+		</div><br>
+		<div class="card"style="background-color: #79A8A9;">
+			<h2>Todos los equipos cuyos nombres comienzan con "T".</h2>
+			<div class="card-body">
+				<ol>
+					{% for team in T %}
+						<li><strong>Nombre :{{team.team_name}}</strong> >> {{team.location}} </li>
+					{% empty %}
+					<p>No se encontraron resultados.</p> 
+					{% endfor %}
+				</ol>
+			</div>
+		</div><br>
+		<div class="card"style="background-color: #79A8A9;">
+			<h2>Todos los equipos, ordenados alfabéticamente por ubicación.</h2>
+			<div class="card-body">
+				<ol>
+					{% for team in orden_alf %}
+						<li><strong>{{team.location}} </strong> >> {{team.team_name}}</li>
+					{% empty %}
+					<p>No se encontraron resultados.</p> 
+					{% endfor %}
+				</ol>
+			</div>
+		</div><br>
+		<div class="card"style="background-color: #79A8A9;">
+			<h2>Todos los equipos, ordenados por nombre de equipo en orden alfabético inverso.</h2>
+			<div class="card-body">
+				<ol>
+					{% for team in orden_inverso %}
+						<li><strong>{{team.team_name}}</strong> de {{team.location}}</li>
+					{% empty %}
+					<p>No se encontraron resultados.</p> 
+					{% endfor %}
+				</ol>
+			</div>
+		</div><br>
+		<div class="card"style="background-color: #79A8A9;">
+			<h2>Cada jugador con apellido "Cooper".</h2>
+			<div class="card-body">
+				<ol>
+					{% for player in Cooper %}
+						<li><strong>Nombre completo: </strong>{{player.first_name}} {{player.last_name}}</li>
+					{% empty %}
+					<p>No se encontraron resultados.</p> 
+					{% endfor %}
+				</ol>
+			</div>
+		</div><br>
+		<div class="card"style="background-color: #79A8A9;">
+			<h2>Cada jugador con nombre "Joshua".</h2>
+			<div class="card-body">
+				<ol>
+					{% for player in Joshua %}
+						<li> <strong>Nombre completo :</strong>{{player.first_name}} {{player.last_name}}</li>
+					{% empty %}
+					<p>No se encontraron resultados.</p> 
+					{% endfor %}
+				</ol>
+			</div>
+		</div><br>
+		<div class="card"style="background-color: #79A8A9;">
+			<h2>todos los jugadores con el apellido "Cooper" EXCEPTO aquellos con "Joshua" como primer nombre</h2>
+			<div class="card-body">
+				<ol>
+					{% for player in Cooper_EXCEPTO_Joshua %}
+						<li><strong>Nombre completo: </strong>{{player.first_name}} {{player.last_name}}</li>
+					{% empty %}
+					<p>No se encontraron resultados.</p> 
+					{% endfor %}
+				</ol>
+			</div>
+		</div><br>
+		<div class="card"style="background-color: #79A8A9;">
+			<h2>Todos los jugadores con nombre "Alexander" O nombre "Wyatt".</h2>
+			<div class="card-body">
+				<ol>
+					{% for player in Alex_o_Wyatt %}
+						<li><strong>Nombre completo:</strong>{{player.first_name}} {{player.last_name}}</li>
+					{% empty %}
+					<p>No se encontraron resultados.</p> 
+					{% endfor %}
+				</ol>
+			</div>
+		</div>
+	</div>
+	<div class="btn-group">
+		<a href="/" class="btn btn-secondary active">Back</a>
+	</div>
+	</div>
+</body>
+</html>
