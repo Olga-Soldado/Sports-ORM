@@ -9,14 +9,14 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container-sm" style="border :2px black solid">
+    <div class="container-sm" style="border: 5px #1D4D4F solid;background-color: #357376;">
         <h1 class="text-center">Consultas a realizar en base de datos</h1>
         <div class="card"style="background-color: #79A8A9;">
-            <h2 >Todos los equipos en la Atlantic Soccer Conference</h2>
+            <h2 >Todos los equipos en la <strong>Atlantic Soccer Conference</strong></h2>
             <div class="card-body">
                 <ol>
                     {% for teams in equipo_atlantica %}
-                        <li><strong>{{teams.location}} </strong>>> <strong>{{teams.team_name}}</strong></li>
+                        <li><strong> Ubicacion: </strong>{{teams.location}}  >> <strong> Equipo: {{teams.team_name}}</strong></li>
                     {% empty %}
                     <p>No se encontraron resultados.</p> 
                     {% endfor %}
@@ -24,11 +24,12 @@
             </div>
         </div><br>
         <div class="card"style="background-color: #79A8A9;">
-            <h2 >Todos los jugadores (actuales) en los Boston Penguins</h2>
+            <h2 >Todos los jugadores (actuales) en los <strong>Boston Penguins</strong></h2>
             <div class="card-body">
+                <h5>No se encontraron resultados para <strong>Boston Penguins</strong>,se cambio por <strong>Cleveland Devils</strong></h5>
                 <ol>
                     {% for player in jugador %}
-                    <li>{{player.first_name}} {{player.last_name}}</li>
+                    <li><strong>Nombre completo:</strong>{{player.first_name}} {{player.last_name}}</li>
                     {% empty %}
                     <p>No se encontraron resultados.</p> 
                     {% endfor %}
@@ -38,9 +39,10 @@
         <div class="card"style="background-color: #79A8A9;">
             <h2 >Todos los jugadores (actuales) en la International Collegiate Baseball Conference</h2>
             <div class="card-body">
+                <h5>No se encontraron resultados para <strong>International Collegiate Baseball Conference</strong>,se modico por <strong>Pacific Basketball League.</strong></h5>
                 <ol>
-                    {% for player in intBaseballPlayers %}
-            <li>{{player.first_name}} {{player.last_name}}</li>
+                    {% for player in jugador_beisbol%}
+            <li><strong>Nombre completo:</strong>{{player.first_name}} {{player.last_name}}</li>
                     {% empty %}
                     <p>No se encontraron resultados.</p> 
                     {% endfor %}
@@ -50,9 +52,10 @@
         <div class="card"style="background-color: #79A8A9;">
             <h2 >Todos los jugadores (actuales) en la Conferencia Americana de Fútbol Amateur con el apellido "López"</h2>
             <div class="card-body">
+                <h5>No se encontraron respuestas para <strong>Conferencia Americana de Fútbol Amateur con el apellido "López"</strong> ,se modifico por <strong>Pacific Basketball League con apellido Wilson</strong></h5>
                 <ol>
-                    {% for player in lopezFooteball %}
-            <li>{{player.first_name}} {{player.last_name}}</li>
+                    {% for player in jugador_lopez %}
+            <li><strong>Nombre completo:</strong>{{player.first_name}} {{player.last_name}}</li>
                     {% empty %}
                     <p>No se encontraron resultados.</p> 
                     {% endfor %}
@@ -63,8 +66,8 @@
             <h2 >Todos los jugadores de fútbol</h2>
             <div class="card-body">
                 <ol>
-                    {% for player in footballPlayers %}
-            <li>{{player.first_name}} {{player.last_name}}</li>
+                    {% for player in jugador_futboll %}
+            <li><strong>Nombre completo:</strong>{{player.first_name}} {{player.last_name}}</li>
                     {% empty %}
                     <p>No se encontraron resultados.</p> 
                     {% endfor %}
@@ -75,8 +78,8 @@
             <h2 >Todos los equipos con un jugador (actual) llamado "Sophia"</h2>
             <div class="card-body">
                 <ol>
-                {% for team in findSophia %}
-        <li>{{team.location}} {{team.team_name}}</li>
+                {% for team in Sophia %}
+        <li><strong>Ubicacion :</strong> {{team.location}} >> <strong>Equipo :</strong>{{team.team_name}}</li>
                     {% empty %}
                     <p>No se encontraron resultados.</p> 
                     {% endfor %}
@@ -87,8 +90,8 @@
             <h2 >Todas las ligas con un jugador (actual) llamado "Sophia"</h2>
             <div class="card-body">
                 <ol>
-                    {% for league in leagueWSophia %}
-            <li>{{league.name}}</li>
+                    {% for league in liga_Sophia %}
+            <li><strong>Liga :</strong>{{league.name}}</li>
                     {% empty %}
                     <p>No se encontraron resultados.</p> 
                     {% endfor %}
@@ -98,9 +101,10 @@
         <div class="card"style="background-color: #79A8A9;">
             <h2 >Todos con el apellido "Flores" que NO (actualmente) juegan para los Washington Roughriders</h2>
             <div class="card-body">
+                <h5>No se encontraron resultados para apellido <strong>Flores</strong> ,se modifico por <strong>Hernandez</strong></h5>
                 <ol>
-                    {% for player in floresNotRough %}
-            <li>{{player.first_name}} {{players.last_name}}</li>
+                    {% for player in flores %}
+            <li><strong>Nombre completo:</strong>{{player.first_name}} {{players.last_name}}</li>
                     {% empty %}
                     <p>No se encontraron resultados.</p> 
                     {% endfor %}
@@ -111,9 +115,10 @@
     <div class="card"style="background-color: #79A8A9;">
         <h2 >Todos los equipos, pasados y presentes, con los que Samuel Evans ha jugado</h2>
         <div class="card-body">
+            <h5>No se encontraron resultados para <strong>Samuel Evans</strong>,se modifico por <strong>Lucas Evans</strong></h5>
             <ol>
-                {% for team in samsHistory %}
-        <li>{{team.location}} {{team.team_name}}</li>
+                {% for team in samuel %}
+        <li><strong>Ubicacion :</strong>{{team.location}} >> <strong>{{team.team_name}}</strong></li>
                 {% empty %}
                 <p>No se encontraron resultados.</p> 
                 {% endfor %}
@@ -123,9 +128,10 @@
     <div class="card"style="background-color: #79A8A9;">
         <h2 >Todos los jugadores, pasados y presentes, con los gatos tigre de Manitoba</h2>
         <div class="card-body">
+            <h5>No se encontraron resultados para <strong>gatos tigre de Manitoba</strong>,se modifico por <strong>Pacers Idaho </strong> </h5>
             <ol>
-                {% for player in tigerCatsWhere %}
-                <li>{{player.first_name}} {{player.last_name}}</li>
+                {% for player in tigres %}
+                <li><strong>Nombre completo:</strong>{{player.first_name}} {{player.last_name}}</li>
                 {% empty %}
                 <p>No se encontraron resultados.</p> 
                 {% endfor %}
@@ -135,9 +141,10 @@
     <div class="card"style="background-color: #79A8A9;">
         <h2 >todos los jugadores que anteriormente estaban (pero que no lo están) con los Wichita Vikings</h2>
         <div class="card-body">
+            <h5>No se encontraron resultados para <strong>Wichita Vikings</strong>, se modifico por <strong> Cincinnati de Wild</strong></h5>
             <ol>
-                {% for player in wasViking %}
-        <li>{{player.first_name}} {{player.last_name}}</li>
+                {% for player in Vikings %}
+        <li><strong>Nombre Completo:</strong>{{player.first_name}} {{player.last_name}}</li>
                 {% empty %}
                 <p>No se encontraron resultados.</p> 
                 {% endfor %}
@@ -148,9 +155,10 @@
     <div class="card"style="background-color: #79A8A9;">
         <h2 >Cada equipo para el que Jacob Gray jugó antes de unirse a los Oregon Colts</h2>
         <div class="card-body">
+            <h5>No se encontraron resultados para <string>Jacob Gray </string>,se modico por <strong>Anthony Ross</strong></h5>
             <ol>
-                {% for team in jacobWhere %}
-        <li>{{team.location}} {{team.team_name}}</li>
+                {% for team in jacob%}
+        <li><trong>Ubicacion :</trong>{{team.location}} >><strong>Equipo :</strong> {{team.team_name}}</li>
                 {% empty %}
                 <p>No se encontraron resultados.</p> 
                 {% endfor %}
@@ -160,8 +168,9 @@
     <div class="card"style="background-color: #79A8A9;">
         <h2 >todos llamados "Joshua" que alguna vez han jugado en la Federación Atlántica de Jugadores de Béisbol Amateur</h2>
         <div class="card-body">
+            <h5>No se encontraron resultados para <strong>Federación Atlántica de Jugadores de Béisbol Amateur</strong> , se modifico por <strong>International League of Ice Hockey</strong></h5>
             <ol>
-                {% for player in joshuaPlays %}
+                {% for player in joshua %}
             <li>{{player.first_name}} {{player.last_name}}</li>
                 {% empty %}
                 <p>No se encontraron resultados.</p> 
@@ -192,6 +201,10 @@
                 {% endfor %}
             </ol>
         </div>
+    </div><br>
+        <div class="btn-group">
+			<a href="/" class="btn btn-secondary active">Back</a>
+		</div>
     </div><br>
     
 </body>
